@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Amigos > Rpgmr</h1>
+{% endblock %}
+
+{% block content %}
+<ul data-role="listview">
+    {% for entity in entities %}
+    <li>
+        <a href="{{ path('amigo_show', { 'id': entity.id }) }}">{{ entity.nome }}</a></td>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block footer -%}
+<div data-role="navbar">
+    <ul>
+        <li><a href="{{ path('usuario_new') }}" data-iconpos="top" data-icon="custom" data-rel="dialog">Convidar</a></li>
+    </ul>
+</div><!-- /navbar -->
+{% endblock %}

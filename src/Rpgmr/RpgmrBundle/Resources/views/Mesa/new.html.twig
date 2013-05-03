@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <a href="{{ path('mesa') }}">Mesas</a>
+    Criar
+{% endblock %}
+
+{% block body -%}
+
+    <form action="{{ path('mesa_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Criar</button>
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    Mesas
+{% endblock %}
+
+{% block body -%}
+
+    <ul>
+        {% for entity in entities %}
+            <li>
+                <a href="{{ path('mesa_show', { 'id': entity.id }) }}">
+                    {{ entity.id }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <ul class="inline">
+        <li>
+            <a href="{{ path('mesa_new') }}">
+                Criar
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

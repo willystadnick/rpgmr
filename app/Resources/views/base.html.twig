@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rpgmr</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <!--<link type="text/css" rel="stylesheet" href="{{ asset('css/jquery.mobile-1.2.1.min.css') }}" />-->
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        {% block stylesheet %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="{{ asset('js/jquery-1.8.3.min.js') }}"></script>
+        <!--<script src="{{ asset('js/jquery.mobile-1.2.1.min.js') }}"></script>-->
+        <script src="{{ asset('js/main.js') }}"></script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header">
+                {% block header %}
+                {% endblock %}
+            </div>
+            <div data-role="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div data-role="footer" data-position="fixed">
+                {% block footer %}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="flash-notice" onclick="$(this).hide('slow');">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% endblock %}
+            </div>
+            {% block javascript %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Dê um nome para seu personagem...</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('personagem_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div><button type="submit">Criar</button></div>
+</form>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$('label').hide();
+$('#rpgmr_rpgmrbundle_personagemtype_nome').val('{{ nome }}');
+$('#rpgmr_rpgmrbundle_personagemtype_nome').click(function(){
+    this.select();
+});
+</script>
+{% endblock %}

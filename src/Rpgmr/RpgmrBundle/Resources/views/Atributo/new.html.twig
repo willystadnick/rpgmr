@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Atributo</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('atributo_create') }}" method="post" {{ form_enctype(form) }}>
+    <input type="hidden" name="objeto" value="personagem" />
+    {{ form_widget(form) }}
+    <p><button type="submit">Criar</button></p>
+</form>
+{% endblock %}

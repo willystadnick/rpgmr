@@ -1,0 +1,4 @@
+rpgmr:
+    resource: "@RpgmrBundle/Controller/"
+    type:     annotation
+    prefix:   /

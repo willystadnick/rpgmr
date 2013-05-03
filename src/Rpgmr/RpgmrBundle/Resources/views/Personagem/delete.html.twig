@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Personagem > Rpgmr</h1>
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">Apagar {{ entity.nome }}?</h2>
+<form action="{{ path('personagem_remove', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Apagar</button>
+        </form>
+{% endblock %}

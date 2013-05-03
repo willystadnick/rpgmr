@@ -1,0 +1,86 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <a href="{{ path('usuario') }}">Usuários</a>
+{% endblock %}
+
+{% block body -%}
+<h1>Usuario</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.email }}</td>
+        </tr>
+        <tr>
+            <th>Senha</th>
+            <td>{{ entity.senha }}</td>
+        </tr>
+        <tr>
+            <th>Nome</th>
+            <td>{{ entity.nome }}</td>
+        </tr>
+        <tr>
+            <th>Credito</th>
+            <td>{{ entity.credito }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="inline">
+    <li>
+        <a href="{{ path('usuario_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('usuario_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Apagar</button>
+        </form>
+    </li>
+</ul>
+
+<h2>Personagens</h2>
+
+<ul class="records_list">
+{% for personagem in personagens %}
+    <li>
+        <a href="{{ path('personagem_show', { 'id': personagem.id }) }}">
+            {{ personagem.nome }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
+<ul class="inline">
+    <li>
+        <a href="{{ path('personagem_new') }}">
+            Criar
+        </a>
+    </li>
+</ul>
+
+<h2>Mesas</h2>
+
+<ul class="records_list">
+{% for mesa in mesas %}
+    <li>
+        <a href="{{ path('mesa_show', { 'id': mesa.id }) }}">
+            {{ mesa.titulo }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
+<ul class="inline">
+    <li>
+        <a href="{{ path('mesa_new') }}">
+            Criar
+        </a>
+    </li>
+</ul>
+{% endblock %}

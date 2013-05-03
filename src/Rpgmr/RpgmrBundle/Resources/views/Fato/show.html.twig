@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Fato</h1>
+{% endblock %}
+
+{% block content %}
+<p>{{ entity.descricao }}</p>
+<div class="ui-grid-a">
+    <div class="ui-block-a"><a href="{{ path('fato_edit', { 'id': entity.id }) }}" data-role="button">{{ entity.autor }}</a></div>
+    <div class="ui-block-b"><a href="{{ path('fato_delete', { 'id': entity.id }) }}" data-role="button">{{ entity.assunto }}</a></div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(".selector").dialog("close");
+</script>
+{% endblock %}

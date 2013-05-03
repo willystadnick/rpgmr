@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<a href="/rpgmr/web/" data-icon="home" data-iconpos="left">Rpgmr</a>
+<h1>Personagem</h1>
+<a href="#menu" data-rel="popup" data-icon="grid" data-iconpos="notext">Menu</a>
+
+<div data-role="popup" id="menu">
+    <ul data-role="listview">
+        <li><a href="{{ path('personagem_edit', { 'id': entity.id }) }}" data-rel="dialog">Renomear personagem</a></li>
+        <li><a href="{{ path('personagem_edit', { 'id': entity.id }) }}" data-rel="dialog">Alterar personagem</a></li>
+        <li><a href="{{ path('personagem_delete', { 'id': entity.id }) }}"  data-rel="dialog">Apagar personagem</a></li>
+        <li><a href="{{ path('atributo_new') }}" data-rel="dialog">Criar atributo</a></li>
+        <li><a href="{{ path('item_new') }}" data-rel="dialog">Criar item</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2>{{ entity.nome }}</h2>
+<p>{{ entity.descricao }}</p>
+<div data-role="collapsible-set">
+    <div data-role="collapsible">
+        <h3>Atributos (0/{{ entity.qualidade }})</h3>
+        <ul data-role="listview" data-inset="false">
+            {% for atributo in atributos %}
+            <li>
+                <a href="{{ path('atributo_show', { 'id': atributo.id }) }}" data-rel="dialog">{{ atributo.atributo }}: {{ atributo.valor }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div data-role="collapsible">
+        <h3>Ítens (0/{{ entity.capacidade }})</h3>
+        <ul data-role="listview">
+            {% for item in itens %}
+            <li>
+                <a href="{{ path('item_show', { 'id': item.id }) }}" data-rel="dialog">{{ item.nome }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

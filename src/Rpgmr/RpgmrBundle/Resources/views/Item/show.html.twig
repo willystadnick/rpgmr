@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Item</h1>
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">{{ entity.nome }}</h2>
+<p>{{ entity.descricao }}</p>
+<div data-role="collapsible-set">
+    <div data-role="collapsible">
+        <h3>Atributos (0/{{ entity.qualidade }})</h3>
+        <ul data-role="listview" data-inset="false">
+            {% for atributo in atributos %}
+            <li>
+                <a href="{{ path('atributo_show', { 'id': atributo.id }) }}" data-rel="dialog">{{ atributo.atributo }}: {{ atributo.valor }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="ui-grid-a">
+    <div class="ui-block-a"><a href="{{ path('item_edit', { 'id': entity.id }) }}" data-role="button" data-rel="dialog">Alterar</a></div>
+    <div class="ui-block-b"><a href="{{ path('item_delete', { 'id': entity.id }) }}" data-role="button" data-rel="dialog">Apagar</a></div>
+</div>
+{% endblock %}

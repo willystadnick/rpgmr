@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Atributo</h1>
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">{{ entity.atributo }}: {{ entity.valor }}</h2>
+<div class="ui-grid-a">
+    <div class="ui-block-a"><a href="{{ path('atributo_edit', { 'id': entity.id }) }}" data-role="button" data-rel="dialog">Alterar</a></div>
+    <div class="ui-block-b"><a href="{{ path('atributo_delete', { 'id': entity.id }) }}" data-role="button" data-rel="dialog">Apagar</a></div>
+</div>
+{% endblock %}

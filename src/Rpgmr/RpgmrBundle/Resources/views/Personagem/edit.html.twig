@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block header %}
+<h1>Personagem</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('personagem_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <input type="hidden" name="_method" value="PUT" />
+    {{ form_widget(edit_form) }}
+    <div><button type="submit">Criar</button></div>
+</form>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$('label').hide();
+$('#rpgmr_rpgmrbundle_personagemtype_nome').click(function(){
+    this.select();
+});
+</script>
+{% endblock %}
