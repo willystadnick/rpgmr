@@ -1,26 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block header %}
-<a href="#menu" data-rel="popup" data-icon="grid" data-iconpos="left">Menu</a>
-<div data-role="popup" id="menu">
-    <ul data-role="listview">
-        <li><a href="{{ path('personagem') }}" data-icon="custom">Personagens</a></li>
-        <li><a href="{{ path('mesa') }}" data-icon="custom">Mesas</a></li>
-        <li><a href="{{ path('usuario') }}" data-icon="custom">Amigos</a></li>
-        <li><a href="{{ path('negocio') }}" data-icon="custom">Negócios</a></li>
-    </ul>
-</div>
-<h1>Rpgmr</h1>
-<a href="#options" data-rel="popup" data-icon="gear" data-iconpos="notext">Opções</a>
-<div data-role="popup" id="options">
-    <ul data-role="listview">
-        <li><a href="#" data-icon="custom">Perfil</a></li>
-        <li><a href="#" data-icon="custom">Notificações</a></li>
-        <li><a href="#" data-icon="custom">Ajuda</a></li>
-        <li><a href="#" data-icon="custom">Sobre</a></li>
-        <li><a href="#" data-icon="custom">Sair</a></li>
-    </ul>
-</div>
+<li><a href="{{ path('personagem') }}" data-icon="custom">Personagens</a></li>
+<li><a href="{{ path('mesa') }}" data-icon="custom">Mesas</a></li>
+<li><a href="{{ path('usuario') }}" data-icon="custom">Amigos</a></li>
+<li><a href="{{ path('negocio') }}" data-icon="custom">Negócios</a></li>
 {% endblock %}
 
 {% block content %}
