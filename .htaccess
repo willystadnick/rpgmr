@@ -1,0 +1,5 @@
+#Options +FollowSymLinks
+#RewriteEngine On
+#RewriteBase /rpgmr/web
+#RewriteCond %{REQUEST_URI} !^/web/ 
+#RewriteRule .* /rpgmr/web/%1 [QSA]
