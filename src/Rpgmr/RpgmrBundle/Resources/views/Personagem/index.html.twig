@@ -1,15 +1,22 @@
 {% extends '::base.html.twig' %}
 
-{% block header %}
-<a href="/rpgmr/web/" data-icon="home" data-iconpos="left">Rpgmr</a>
-<h1>Personagens</h1>
-<a href="{{ path('personagem_new') }}" data-icon="plus" data-iconpos="notext" data-rel="dialog">Novo</a>
-{% endblock %}
-
-{% block content %}
-<ul data-role="listview">
-    {% for entity in entities %}
-    <li><a href="{{ path('personagem_show', { 'id': entity.id }) }}">{{ entity.nome }}</a></li>
-    {% endfor %}
+{% block body %}
+<ul class="breadcrumb">
+  <li class="active">Personagens <span class="divider">/</span></li>
+  <li><a href="{{ path('personagem_new') }}">Novo</a></li>
 </ul>
+
+{% for entity in entities %}
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" data-src="holder.js/64x64">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">{{ entity.nome }}</h4>
+    <a href="{{ path('personagem_show', { 'id': entity.id }) }}">{{ entity.descricao }} +</a>
+  </div>
+</div>
+
+
+    {% endfor %}
 {% endblock %}

@@ -1,9 +1,11 @@
-<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+
+#<IfModule mod_rewrite.c>
     RewriteEngine On
 
-    <IfModule mod_vhost_alias.c>
-        RewriteBase /web
-    </IfModule>
+    #<IfModule mod_vhost_alias.c>
+        RewriteBase /rpgmr/web
+    #</IfModule>
 
     RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -11,4 +13,4 @@
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app_dev.php [QSA,L]
-</IfModule>
+#</IfModule>
